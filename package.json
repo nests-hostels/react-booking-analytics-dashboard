@@ -1,0 +1,70 @@
+{
+    "name": "react-cloudbeds-bookings-analytics",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "description": "A powerful analytics dashboard for hostel chains to track weekly direct booking performance and gain AI-powered insights from CloudBeds reservation data.",
+    "author": "Artur Mamedov <arturmamedov1993@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nests-hostels/react-cloudbeds-bookings-analytics.git"
+    },
+    "keywords": [
+        "react",
+        "cloudbeds",
+        "analytics",
+        "hostel",
+        "booking",
+        "dashboard",
+        "hospitality",
+        "reservations"
+    ],
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+        "lint:fix": "eslint . --ext js,jsx --fix",
+        "preview": "vite preview",
+        "format": "prettier --write \"src/**/*.{js,jsx,css,md}\"",
+        "type-check": "tsc --noEmit"
+    },
+    "dependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "lucide-react": "^0.263.1",
+        "recharts": "^2.12.7",
+        "xlsx": "^0.18.5"
+    },
+    "devDependencies": {
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.3.1",
+        "eslint": "^8.57.0",
+        "eslint-plugin-react": "^7.34.2",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "eslint-plugin-react-refresh": "^0.4.7",
+        "vite": "^5.3.1",
+        "tailwindcss": "^3.4.4",
+        "autoprefixer": "^10.4.19",
+        "postcss": "^8.4.38",
+        "prettier": "^3.3.2",
+        "prettier-plugin-tailwindcss": "^0.6.5"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=8.0.0"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
