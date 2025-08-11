@@ -16,17 +16,17 @@ const HostelAnalytics = () => {
 
     // Hostel configuration with IDs
     const hostelConfig = {
-        'Flamingo': { id: '316327', name: 'Flamingo' },
+        'Flamingo': { id: '6733', name: 'Flamingo' },
         'Puerto': { id: '316328', name: 'Puerto' },
-        'Duque': { id: '316329', name: 'Duque' },
-        'Centro': { id: '316330', name: 'Centro' },
-        'Malaga': { id: '316331', name: 'Malaga' },
-        'Sevilla': { id: '316332', name: 'Sevilla' },
-        'Valencia': { id: '316333', name: 'Valencia' },
-        'Barcelona': { id: '316334', name: 'Barcelona' },
-        'Madrid': { id: '316335', name: 'Madrid' },
-        'Bilbao': { id: '316336', name: 'Bilbao' },
-        'Granada': { id: '316337', name: 'Granada' }
+        'Arena': { id: '315588', name: 'Arena' },
+        'Duque': { id: '316438', name: 'Duque' },
+        'Las Palmas': { id: '316428', name: 'Las Palmas' },
+        'Aguere': { id: '316437', name: 'Aguere' },
+        'Medano': { id: '316440', name: 'Medano' },
+        'Los Amigos': { id: '316443', name: 'Los Amigos' },
+        'Cisne': { id: '316442', name: 'Cisne' },
+        'Ashavana': { id: '316441', name: 'Ashavana' },
+        'Las Eras': { id: '316439', name: 'Las Eras' },
     };
 
     // Helper function to parse Excel dates
