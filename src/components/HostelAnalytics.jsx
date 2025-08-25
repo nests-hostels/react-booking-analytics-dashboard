@@ -479,14 +479,69 @@ const HostelAnalytics = () => {
         }
     };
 
-    // Handle file drop
-    const handleDrop = useCallback((e) => {
+    // Handle file drop (including folders)
+    const handleDrop = useCallback(async (e) => {
         e.preventDefault();
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-            processFiles(files);
+        const items = e.dataTransfer.items;
+        const files = [];
+
+        // Process drag & drop items (supports folders)
+        if (items) {
+            const promises = [];
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                if (item.kind === 'file') {
+                    const entry = item.webkitGetAsEntry();
+                    if (entry) {
+                        promises.push(processEntry(entry));
+                    }
+                }
+            }
+
+            const allFiles = await Promise.all(promises);
+            const flatFiles = allFiles.flat().filter(file =>
+                file.name.endsWith('.xlsx') || file.name.endsWith('.xls')
+            );
+
+            if (flatFiles.length > 0) {
+                processFiles(flatFiles);
+            } else {
+                alert('No Excel files found in the dropped items');
+            }
+        } else {
+            // Fallback for simple file drag & drop
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                processFiles(files);
+            }
         }
     }, []);
+
+    // Process file system entries (folders and files)
+    const processEntry = async (entry) => {
+        if (entry.isFile) {
+            return new Promise((resolve) => {
+                entry.file(resolve);
+            });
+        } else if (entry.isDirectory) {
+            const reader = entry.createReader();
+            const entries = await new Promise((resolve) => {
+                reader.readEntries(resolve);
+            });
+
+            const files = [];
+            for (const childEntry of entries) {
+                const childFiles = await processEntry(childEntry);
+                if (Array.isArray(childFiles)) {
+                    files.push(...childFiles);
+                } else {
+                    files.push(childFiles);
+                }
+            }
+            return files;
+        }
+        return [];
+    };
 
     const handleDragOver = useCallback((e) => {
         e.preventDefault();
